@@ -1,7 +1,20 @@
 import { Button, Card, Col, Input, Row, Select, Space, Typography } from "antd";
+import { useEffect } from "react";
 
 import { IoAddCircle } from "react-icons/io5";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleCreateRecipe } from "../../redux/appActions";
+import { CreateRecipeModal } from "./CreateRecipeModal";
 export const RecipeBrowser = () => {
+    const dispatch = useDispatch();
+    const showCreateModal = useSelector((state) => state.app.showCreateModal);
+
+    const handleToggleCreateRecipe = () => {
+        dispatch(toggleCreateRecipe());
+    };
+    useEffect(() => {
+        console.log(showCreateModal);
+    }, [showCreateModal]);
     return (
         <div style={{ padding: 12, margin: 8 }}>
             <Space direction={"vertical"} style={{ width: "100%" }}>
@@ -13,6 +26,7 @@ export const RecipeBrowser = () => {
                     size={"large"}
                     type={"primary"}
                     style={{ fontWeight: "bold" }}
+                    onClick={handleToggleCreateRecipe}
                     icon={
                         <IoAddCircle
                             style={{
@@ -24,6 +38,7 @@ export const RecipeBrowser = () => {
                 >
                     Create New Recipe
                 </Button>
+                <CreateRecipeModal />
             </Space>
         </div>
     );
