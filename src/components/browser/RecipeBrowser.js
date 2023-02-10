@@ -1,5 +1,6 @@
 import { Button, Card, Col, Input, Row, Select, Space, Typography } from "antd";
 
+import { IoAddCircle } from "react-icons/io5";
 export const RecipeBrowser = () => {
     return (
         <div style={{ padding: 12, margin: 8 }}>
@@ -12,6 +13,14 @@ export const RecipeBrowser = () => {
                     size={"large"}
                     type={"primary"}
                     style={{ fontWeight: "bold" }}
+                    icon={
+                        <IoAddCircle
+                            style={{
+                                justifySelf: "center !important",
+                                marginRight: 4,
+                            }}
+                        />
+                    }
                 >
                     Create New Recipe
                 </Button>
