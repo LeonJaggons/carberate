@@ -1,17 +1,18 @@
 import { Layout } from "antd";
 import { Provider } from "react-redux";
-import store from "../../redux/store";
+import { loadIngredients } from "../../redux/appActions";
 import { CarberateContent } from "./CarberateContent";
 import { CarberateHeader } from "./CarberateHeader";
+import { useDispatch } from "react-redux";
 
 function App() {
+    const dispatch = useDispatch();
+    dispatch(loadIngredients());
     return (
-        <Provider store={store}>
-            <Layout>
-                <CarberateHeader />
-                <CarberateContent />
-            </Layout>
-        </Provider>
+        <Layout>
+            <CarberateHeader />
+            <CarberateContent />
+        </Layout>
     );
 }
 

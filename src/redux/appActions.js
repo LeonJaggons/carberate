@@ -1,3 +1,28 @@
+const IngredientsJSON = require("../ingredients.json");
+export const loadIngredients = () => {
+    return (dispatch) => {
+        let ingreds = [];
+        const ingredCategories = Object.keys(IngredientsJSON);
+        for (let cat of ingredCategories) {
+            ingreds.push({
+                label: cat,
+                options: [
+                    ...IngredientsJSON[[cat]].map((ing) => {
+                        return {
+                            label: ing,
+                            value: ing.toUpperCase(),
+                        };
+                    }),
+                ],
+            });
+        }
+        dispatch({
+            type: "SET",
+            attr: "selectIngredients",
+            payload: [...ingreds],
+        });
+    };
+};
 export const toggleCreateRecipe = () => {
     return (dispatch, getState) => {
         let showCreateModal = getState().app.showCreateModal;

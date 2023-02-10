@@ -112,6 +112,9 @@ const IngredientItem = () => {
     const [unit, setUnit] = useState();
     const [quant, setQuant] = useState();
     const [ingred, setIngred] = useState();
+    const selectIngredients = useSelector(
+        (state) => state.app.selectIngredients
+    );
     return (
         <Row gutter={4} style={{ width: "100%" }}>
             <Col span={4}>
@@ -124,7 +127,13 @@ const IngredientItem = () => {
                 />
             </Col>
             <Col flex={1}>
-                <Input />
+                <Select
+                    showSearch
+                    options={selectIngredients}
+                    style={{ width: "100%" }}
+                    value={ingred}
+                    onChange={(val, opt) => setIngred(val)}
+                />
             </Col>
             <Col span={8}>
                 <Input />

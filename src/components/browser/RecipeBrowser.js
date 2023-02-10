@@ -12,9 +12,11 @@ export const RecipeBrowser = () => {
     const handleToggleCreateRecipe = () => {
         dispatch(toggleCreateRecipe());
     };
+
     useEffect(() => {
         console.log(showCreateModal);
     }, [showCreateModal]);
+
     return (
         <div style={{ padding: 12, margin: 8 }}>
             <Space direction={"vertical"} style={{ width: "100%" }}>
