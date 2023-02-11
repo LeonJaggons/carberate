@@ -1,5 +1,6 @@
 const appState = {
     appTitle: "Carberate",
+    appState: "BROWSE",
     selectIngredients: [],
     showCreateModal: false,
 };

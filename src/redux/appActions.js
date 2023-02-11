@@ -1,4 +1,13 @@
+import store from "../redux/store";
 const IngredientsJSON = require("../ingredients.json");
+
+export const setAppState = (newAppState) => {
+    store.dispatch({
+        type: "SET",
+        attr: "appState",
+        payload: newAppState,
+    });
+};
 export const loadIngredients = () => {
     return (dispatch) => {
         let ingreds = [];
